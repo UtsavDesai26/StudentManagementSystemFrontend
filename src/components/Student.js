@@ -45,15 +45,15 @@ export default function Student(props) {
 
   let saveStudent = (event) => {
     event.preventDefault();
-    
-      axios
-        .post("http://localhost:8080/student", student)
-        .then((response) => {
-          if (response.data != null) {
-            props.showAlert("success", "Record added successfully");
-          }
-        })
-        .catch((error) => props.showAlert("danger", "Error"));
+
+    axios
+      .post("http://localhost:8080/student", student)
+      .then((response) => {
+        if (response.data != null) {
+          props.showAlert("success", "Record added successfully");
+        }
+      })
+      .catch((error) => props.showAlert("danger", "Error"));
   };
 
   let updateStudent = (event) => {
@@ -72,7 +72,7 @@ export default function Student(props) {
         <Card>
           <Form onSubmit={studentId != null ? updateStudent : saveStudent}>
             <Card.Header>
-              <strong>{studentId!=null? "Update Student Information":"Add Student Information"}</strong>
+              <strong>{studentId != null ? "Update Student Information" : "Add Student Information"}</strong>
             </Card.Header>
             <Card.Body>
               <Form.Group className="mb-3">
